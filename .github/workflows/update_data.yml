@@ -1,9 +1,9 @@
 name: Nexus Data Pipeline
 on:
   schedule:
-    - cron: '0 11 * * *'    # 08:00 BRT
-    - cron: '0 17 * * *'    # 14:00 BRT
-    - cron: '30 19 * * *'   # 16:30 BRT
+    - cron: '0 11 * * *'    # 08:00 BR
+    - cron: '0 17 * * *'    # 14:00 BR
+    - cron: '30 19 * * *'   # 16:30 BR
   workflow_dispatch:        # Permite rodar manualmente para testes
 
 jobs:
