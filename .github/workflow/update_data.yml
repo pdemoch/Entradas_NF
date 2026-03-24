@@ -1,0 +1,25 @@
+name: Nexus Data Pipeline
+on:
+  schedule:
+    - cron: '0 11 * * *'    # 08:00 BRT
+    - cron: '0 17 * * *'    # 14:00 BRT
+    - cron: '30 19 * * *'   # 16:30 BRT
+  workflow_dispatch:        # Permite rodar manualmente para testes
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install Libs
+        run: pip install pandas supabase python-dotenv aiohttp openpyxl
+      - name: Run ETL
+        env:
+          GOBI_TOKEN: ${{ secrets.GOBI_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python update_supabase.py
