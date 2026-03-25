@@ -101,7 +101,7 @@ if st.sidebar.button("🔄 Forçar Atualização de Dados", use_container_width=
             
             # ATENÇÃO: Verifique se o nome do seu arquivo lá no GitHub é .yml ou .yaml
             # Se for .yml, mude o final do link abaixo para update_data.yml
-            url = f"https://api.github.com/repos/{gh_owner}/{gh_repo}/actions/workflows/update_data.yaml/dispatches"
+            url = f"https://api.github.com/repos/{gh_owner}/{gh_repo}/actions/workflows/update_data.yml/dispatches"
             
             headers = {
                 "Accept": "application/vnd.github.v3+json",
